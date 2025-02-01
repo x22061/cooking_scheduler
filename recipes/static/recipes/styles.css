@@ -1,0 +1,186 @@
+/* 基本設定 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-image: url("../images/back_image.jpg");
+    color: #333;
+}
+
+/* タイトル */
+h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 24px;
+    color: #000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto; /* 上下に余白を追加 */
+    width: 100%; /* 必要に応じて調整 */
+}
+#site-search {
+    width: 50%; /* 入力フィールドの幅を設定 */
+    max-width: 400px; /* 最大幅を指定 */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="checkbox"] {
+    appearance: none; /* デフォルトの見た目をリセット */
+    -webkit-appearance: none; /* Safari用 */
+    -moz-appearance: none; /* Firefox用 */
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px; /* 角を丸める */
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    background-color: #fff;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #4caf50; /* チェック時の背景色 */
+    border-color: #4caf50; /* チェック時の枠線色 */
+}
+input[type="checkbox"]:checked::after {
+    content: '✔'; /* チェックマークの文字 */
+    color: #fff;
+    font-size: 16px;
+    position: absolute;
+    top: 0;
+    left: 4px;
+    font-weight: bold;
+}
+
+/* リストのスタイリング (scheduler.html 用) */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+ul li {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+ul li:nth-child(odd) {
+    background-color: #f4f4f4;
+}
+
+
+/* ボタンとリンク */
+a, button {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #ff6200;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+a:hover, button:hover {
+    background-color: #a74000;
+}
+
+button {
+    font-weight: bold;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* フォーム (select_recipes.html 用) */
+form {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 400px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+form input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.back-link {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ff6200;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #d1d1d1;
+}
+
+.recipe-list{
+    height: 300px;
+    width: 300px;
+    overflow-y: scroll;
+}
+
+
+/* レスポンシブ対応 */
+@media (max-width: 600px) {
+    ul li, form {
+        max-width: 90%;
+    }
+
+    button, a {
+        width: 90%;
+    }
+}

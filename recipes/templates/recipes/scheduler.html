@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cooking Order</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'recipes/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">調理手順</h1>
+        <ul class="task-list">
+            {% for task in schedule %}
+                <li class="task-item">
+                    <span class="task-order">{{ forloop.counter }}: </span>
+                    <span class="task-details">{{ task.recipe_name }}  材料: {{task.ingredient}}<br>{{task.detail}}:</span>
+                    <span class="task-time">所用時間 {{ task.action_time }} 分</span>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'recipe_scheduler' %}" class="back-link">レシピ選択に戻る</a>
+    </div>
+</body>
+</html>

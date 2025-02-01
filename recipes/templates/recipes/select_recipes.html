@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Scheduler</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="../../static/recipes/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">料理スケジュールアプリ</h1>
+        <h2>複数の料理を作る際に効率的な調理の順番をお教えします！</h2>
+        
+        <form method="post" class="recipe-form">
+            {% csrf_token %} 
+            <p>レシピを選択してください:</p>
+            <div id="search">
+                <input type="search" id="site-search" name="q" placeholder="料理名を検索..." />
+            </div>
+    
+            <div class="recipe-list">
+                {% for recipe in recipes %}
+                    <label class="recipe-item">
+                        <input type="checkbox" name="recipes" value="{{ recipe.id }}">
+                        {{ recipe.name }}
+                    </label>
+                {% endfor %}
+            </div>
+    
+            <button type="submit" class="submit-button">料理を開始する</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('site-search').addEventListener('input', function () {
+            const searchValue = this.value.toLowerCase(); // 小文字に変換して検索
+            const recipeItems = document.querySelectorAll('.recipe-item');
+
+            recipeItems.forEach(item => {
+                const recipeName = item.textContent.toLowerCase();
+                if (recipeName.includes(searchValue)) {
+                    item.style.display = 'flex';  /* 表示 */
+                } else {
+                    item.style.display = 'none';  /* 非表示 */
+                }
+            });
+        });
+    </script>    
+</body>
+</html>
