@@ -9,7 +9,7 @@ def recipe_scheduler(request):
 
         # フォームから送信された選択されたレシピのリスト(id)を取得
         selected_recipes = request.POST.getlist('recipes')
-        
+
         steps = []
         recipe_ingredients = {}
         
@@ -17,8 +17,10 @@ def recipe_scheduler(request):
 
             #idが選択したレシピのモノと一致したらデータベースから取得
             recipe = Recipe.objects.get(id=recipe_id)
+
             recipe_ingredients[recipe.name] = recipe.ingredients
             
+
             #レシピに関連するすべての情報を取得
             for step in recipe.steps.all().order_by('number'):
                 steps.append({
@@ -148,7 +150,9 @@ def recipe_scheduler(request):
                                 remaining_wait_time = 0  # 待ち時間を初期化
 
 
+
         return render(request, 'recipes/scheduler.html',  {'schedule': schedule, 'recipe_ingredients': recipe_ingredients})
+
 
     recipes = Recipe.objects.all()
     return render(request, 'recipes/select_recipes.html', {'recipes': recipes})
