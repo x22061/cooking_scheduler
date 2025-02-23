@@ -12,7 +12,7 @@ body {
 /* コンテナ */
 .container {
     width: 100%;
-    margin: 0 auto; /* 中央揃え */
+    margin: 0 auto;
     padding: 20px;
 }
 
@@ -45,7 +45,7 @@ p {
 }
 
 #site-search {
-    width: 80%; /* 幅を調整 */
+    width: 80%; 
     max-width: 500px;
     padding: 12px;
     font-size: 16px;
@@ -58,7 +58,7 @@ input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    width: 24px; /* サイズを調整 */
+    width: 24px;
     height: 24px;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -68,8 +68,8 @@ input[type="checkbox"] {
     outline: none;
     background-color: #fff;
     transition: background-color 0.3s, border-color 0.3s;
-    margin-right: 10px; /* 余白を追加 */
-    vertical-align: middle; /* 垂直方向中央揃え */
+    margin-right: 10px; 
+    vertical-align: middle; 
 }
 
 input[type="checkbox"]:checked {
@@ -99,9 +99,9 @@ input[type="checkbox"]:checked::after {
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 15px;
-    display: flex; /* フレックスボックスを使用 */
-    flex-direction: column; /* 要素を縦に並べる */
-    align-items: center; /* 中央揃え */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
     text-align: center;
     max-width: 550px;
 }
@@ -109,11 +109,11 @@ input[type="checkbox"]:checked::after {
 /* レシピリスト */
 .recipe-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* グリッドレイアウト */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
     gap: 15px;
     padding: 20px;
-    overflow-y: auto; /* スクロールバーを追加 */
-    max-height: 300px; /* 最大高さを設定 */
+    overflow-y: auto; 
+    max-height: 500px; 
 }
 
 .recipe-item {
@@ -121,16 +121,16 @@ input[type="checkbox"]:checked::after {
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 15px;
-    display: flex; /* フレックスボックスを使用 */
-    flex-direction: column; /* 要素を縦に並べる */
-    align-items: center; /* 中央揃え */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
     text-align: center;
-    max-width: 300px;
+    max-width: 200px;
 }
 
 .recipe-item img {
     max-width: 100%;
-    max-height: 150px; /* 最大高さを設定 */
+    max-height: 150px; 
     height: auto;
     margin-bottom: 10px;
 }
