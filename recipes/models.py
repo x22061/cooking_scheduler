@@ -18,6 +18,8 @@ class ActionType(models.TextChoices):
 
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='recipe_images/', null=True, blank=True)
+    ingredients = models.CharField(max_length=255, blank=True, null=True) 
 
     def __str__(self):
         return self.name

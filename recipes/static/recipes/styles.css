@@ -1,10 +1,19 @@
 /* 基本設定 */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0; /* 余白を削除 */
     padding: 0;
     background-image: url("../images/back_image.jpg");
+    background-size: cover; /* 背景画像をページ全体にフィット */
+    background-repeat: no-repeat; /* 背景画像の繰り返しをなくす */
     color: #333;
+}
+
+/* コンテナ */
+.container {
+    width: 100%;
+    margin: 0 auto; /* 中央揃え */
+    padding: 20px;
 }
 
 /* タイトル */
@@ -27,50 +36,103 @@ p {
     margin-bottom: 20px;
 }
 
+/* 検索 */
 #search {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 20px auto; /* 上下に余白を追加 */
-    width: 100%; /* 必要に応じて調整 */
+    margin: 20px auto;
+    width: 100%;
 }
+
 #site-search {
-    width: 50%; /* 入力フィールドの幅を設定 */
-    max-width: 400px; /* 最大幅を指定 */
-    padding: 10px;
+    width: 80%; /* 幅を調整 */
+    max-width: 500px;
+    padding: 12px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
+/* チェックボックス */
 input[type="checkbox"] {
-    appearance: none; /* デフォルトの見た目をリセット */
-    -webkit-appearance: none; /* Safari用 */
-    -moz-appearance: none; /* Firefox用 */
-    width: 20px;
-    height: 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 24px; /* サイズを調整 */
+    height: 24px;
     border: 2px solid #ccc;
-    border-radius: 4px; /* 角を丸める */
+    border-radius: 4px;
     display: inline-block;
     cursor: pointer;
     position: relative;
     outline: none;
     background-color: #fff;
     transition: background-color 0.3s, border-color 0.3s;
+    margin-right: 10px; /* 余白を追加 */
+    vertical-align: middle; /* 垂直方向中央揃え */
 }
 
 input[type="checkbox"]:checked {
-    background-color: #4caf50; /* チェック時の背景色 */
-    border-color: #4caf50; /* チェック時の枠線色 */
+    background-color: #4caf50;
+    border-color: #4caf50;
 }
+
 input[type="checkbox"]:checked::after {
-    content: '✔'; /* チェックマークの文字 */
+    content: '✔';
     color: #fff;
     font-size: 16px;
     position: absolute;
-    top: 0;
+    top: 2px;
     left: 4px;
     font-weight: bold;
+}
+
+.ingredient {
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ingredients-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    display: flex; /* フレックスボックスを使用 */
+    flex-direction: column; /* 要素を縦に並べる */
+    align-items: center; /* 中央揃え */
+    text-align: center;
+    max-width: 550px;
+}
+
+/* レシピリスト */
+.recipe-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* グリッドレイアウト */
+    gap: 15px;
+    padding: 20px;
+    overflow-y: auto; /* スクロールバーを追加 */
+    max-height: 300px; /* 最大高さを設定 */
+}
+
+.recipe-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    display: flex; /* フレックスボックスを使用 */
+    flex-direction: column; /* 要素を縦に並べる */
+    align-items: center; /* 中央揃え */
+    text-align: center;
+    max-width: 300px;
+}
+
+.recipe-item img {
+    max-width: 100%;
+    max-height: 150px; /* 最大高さを設定 */
+    height: auto;
+    margin-bottom: 10px;
 }
 
 /* リストのスタイリング (scheduler.html 用) */
@@ -101,7 +163,7 @@ a, button {
     width: fit-content;
     margin: 20px auto;
     text-align: center;
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 16px;
     color: white;
     background-color: #ff6200;
@@ -124,14 +186,14 @@ button:active {
     transform: scale(0.98);
 }
 
-/* フォーム (select_recipes.html 用) */
+/* フォーム */
 form {
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 20px;
-    margin: 0 auto;
-    max-width: 400px;
+    margin: 20px auto;
+    max-width: 800px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -143,16 +205,13 @@ form label {
     color: #333;
 }
 
-form input[type="checkbox"] {
-    margin-right: 10px;
-}
-
+/* 戻るリンク */
 .back-link {
     display: block;
     width: fit-content;
     margin: 20px auto;
     text-align: center;
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 16px;
     color: #ff6200;
     background-color: white;
@@ -167,20 +226,13 @@ form input[type="checkbox"] {
     background-color: #d1d1d1;
 }
 
-.recipe-list{
-    height: 300px;
-    width: 300px;
-    overflow-y: scroll;
-}
-
-
 /* レスポンシブ対応 */
-@media (max-width: 600px) {
-    ul li, form {
-        max-width: 90%;
+@media (max-width: 768px) {
+    #site-search {
+        width: 95%;
     }
 
-    button, a {
-        width: 90%;
+    form {
+        max-width: 95%;
     }
 }

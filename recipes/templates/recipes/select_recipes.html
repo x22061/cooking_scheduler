@@ -21,6 +21,9 @@
                 {% for recipe in recipes %}
                     <label class="recipe-item">
                         <input type="checkbox" name="recipes" value="{{ recipe.id }}">
+                        {% if recipe.image %}
+                            <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}">
+                        {% endif %}
                         {{ recipe.name }}
                     </label>
                 {% endfor %}
@@ -29,17 +32,18 @@
             <button type="submit" class="submit-button">料理を開始する</button>
         </form>
     </div>
+
     <script>
         document.getElementById('site-search').addEventListener('input', function () {
-            const searchValue = this.value.toLowerCase(); // 小文字に変換して検索
+            const searchValue = this.value.toLowerCase();
             const recipeItems = document.querySelectorAll('.recipe-item');
 
             recipeItems.forEach(item => {
                 const recipeName = item.textContent.toLowerCase();
                 if (recipeName.includes(searchValue)) {
-                    item.style.display = 'flex';  /* 表示 */
+                    item.style.display = 'flex';
                 } else {
-                    item.style.display = 'none';  /* 非表示 */
+                    item.style.display = 'none';
                 }
             });
         });

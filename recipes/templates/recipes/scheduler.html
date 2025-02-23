@@ -7,6 +7,13 @@
 </head>
 <body>
     <div class="container">
+        <h1 class="page-title">材料</h1>
+        <ul class="ingredients-item">
+            {% for recipe_name, ingredients in recipe_ingredients.items %}
+                <p class="ingredient">{{ recipe_name }} の具材: {{ ingredients }}</p>
+            {% endfor %}
+        </ul>
+
         <h1 class="page-title">調理手順</h1>
         <ul class="task-list">
             {% for task in schedule %}
